@@ -14,6 +14,9 @@
 
 #import <objc/runtime.h>
 
+// Workaround per https://github.com/CRAlpha/react-native-wkwebview/issues/235
+NSString *const RCTJSNavigationScheme = @"react-js-navigation";
+
 // runtime trick to remove WKWebView keyboard default toolbar
 // see: http://stackoverflow.com/questions/19033292/ios-7-uiwebview-keyboard-issue/19042279#19042279
 @interface _SwizzleHelperWK : NSObject @end
