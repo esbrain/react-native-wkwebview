@@ -66,6 +66,9 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
     
     WKWebViewConfiguration* config = [[WKWebViewConfiguration alloc] init];
     config.processPool = processPool;
+    // set default applicationNameForUserAgent
+    config.applicationNameForUserAgent = [[NSUserDefaults standardUserDefaults] stringForKey: @"ApplicationNameForUserAgent"];
+
     WKUserContentController* userController = [[WKUserContentController alloc]init];
     [userController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithDelegate:self] name:@"reactNative"];
     config.userContentController = userController;
